@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Focus — Three focuses, every new tab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="A calm new-tab dashboard for your three daily focuses, Pomodoro timer, and a daily Danish phrase. Chrome extension." />
+    <link rel="icon" type="image/png" href="icon-128.png" />
+    <style>
+      :root {
+        --bg-top: #f4f7f2;
+        --bg-bottom: #dde9dd;
+        --ink: #2d3d33;
+        --ink-soft: #6b7f70;
+        --ink-faint: #a8bcae;
+        --sage: #7ba888;
+        --sage-deep: #5b8a6b;
+        --sage-tint: rgba(123, 168, 136, 0.12);
+        --line: rgba(91, 138, 107, 0.18);
+        --card: rgba(255, 255, 255, 0.7);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-top: #1a2420;
+          --bg-bottom: #0f1614;
+          --ink: #dde7e0;
+          --ink-soft: #94a89c;
+          --ink-faint: #62756a;
+          --sage: #7ba888;
+          --sage-deep: #a8d4b6;
+          --sage-tint: rgba(123, 168, 136, 0.18);
+          --line: rgba(168, 212, 182, 0.14);
+          --card: rgba(255, 255, 255, 0.035);
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.55;
+      }
+      .stage {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 10vh 28px 8vh;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 500;
+      }
+      .brand img { width: 36px; height: 36px; border-radius: 8px; }
+      h1 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(36px, 5.5vw, 56px);
+        line-height: 1.05;
+        margin: 0;
+        letter-spacing: -0.015em;
+      }
+      .lede {
+        font-family: "Fraunces", Georgia, serif;
+        font-style: italic;
+        font-size: 19px;
+        color: var(--ink-soft);
+        margin: 0;
+        max-width: 540px;
+      }
+      .features {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .features li {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 18px;
+        font-size: 15px;
+      }
+      .features li strong {
+        color: var(--ink);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 2px;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 17px;
+      }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
+      }
+      .btn-primary { background: var(--sage-deep); color: #fff; }
+      .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+      .btn-ghost {
+        background: transparent;
+        color: var(--ink-soft);
+        border: 1px solid var(--line);
+      }
+      .btn-ghost:hover { color: var(--ink); border-color: var(--sage); }
+      footer {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--ink-soft);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px dashed var(--line); }
+      footer a:hover { color: var(--sage-deep); border-bottom-color: var(--sage); }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="brand">
+        <img src="icon-128.png" alt="" />
+        <span>Daily Focus</span>
+      </div>
+
+      <div>
+        <h1>Three focuses,<br />every new tab.</h1>
+      </div>
+      <p class="lede">A calm dashboard that replaces your new tab — three focuses, a Pomodoro timer, a habit grid, and an optional daily Danish phrase. Stays out of your way until you open a tab.</p>
+
+      <ul class="features">
+        <li><strong>Three focuses, one frog.</strong> Pick what matters today. Mark the hardest as your frog and eat it first.</li>
+        <li><strong>Pomodoro per task.</strong> Click play on any focus. A floating timer follows you across tabs.</li>
+        <li><strong>Sticky pill on every page.</strong> Check off a focus without leaving the page you're on.</li>
+        <li><strong>30-day streak grid.</strong> Strict chain — any missed day breaks it. The kind that actually matters.</li>
+        <li><strong>Daily Danish (optional).</strong> Spaced-repetition card with AI grading via your own Anthropic key.</li>
+        <li><strong>Cloud sync across devices.</strong> Sign into Chrome with the same Google account and your data follows.</li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#" aria-disabled="true">Soon on Chrome Web Store</a>
+        <a class="btn btn-ghost" href="/privacy">Privacy policy</a>
+      </div>
+
+      <footer>
+        <span>By <a href="https://github.com/AuriDevcourse">Aurimas Baciauskas</a></span>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:baciauskas.aurimas@gmail.com">Contact</a>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Focus — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Privacy policy for the Daily Focus Chrome extension." />
+    <style>
+      :root {
+        --bg-top: #f4f7f2;
+        --bg-bottom: #dde9dd;
+        --ink: #2d3d33;
+        --ink-soft: #6b7f70;
+        --ink-faint: #a8bcae;
+        --sage: #7ba888;
+        --sage-deep: #5b8a6b;
+        --sage-tint: rgba(123, 168, 136, 0.12);
+        --line: rgba(91, 138, 107, 0.18);
+        --card: rgba(255, 255, 255, 0.7);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-top: #1a2420;
+          --bg-bottom: #0f1614;
+          --ink: #dde7e0;
+          --ink-soft: #94a89c;
+          --ink-faint: #62756a;
+          --sage: #7ba888;
+          --sage-deep: #a8d4b6;
+          --sage-tint: rgba(123, 168, 136, 0.18);
+          --line: rgba(168, 212, 182, 0.14);
+          --card: rgba(255, 255, 255, 0.035);
+          color-scheme: dark;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .stage {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 6vh 28px 8vh;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+      .brand-dot {
+        width: 10px; height: 10px;
+        background: var(--sage);
+        border-radius: 3px;
+      }
+      h1 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(34px, 5vw, 48px);
+        line-height: 1.1;
+        margin: 0 0 6px;
+        letter-spacing: -0.01em;
+      }
+      .meta {
+        font-size: 13px;
+        color: var(--ink-soft);
+        margin: 0 0 36px;
+      }
+      h2 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 500;
+        font-size: 22px;
+        margin: 44px 0 12px;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+      }
+      h3 {
+        font-size: 14px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin: 28px 0 8px;
+        font-weight: 500;
+      }
+      p { margin: 0 0 14px; }
+      ul {
+        margin: 0 0 14px;
+        padding-left: 22px;
+      }
+      li { margin: 0 0 6px; }
+      strong { color: var(--ink); font-weight: 600; }
+      code {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 0.9em;
+        background: var(--sage-tint);
+        color: var(--sage-deep);
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+      a { color: var(--sage-deep); text-decoration: none; border-bottom: 1px dashed var(--line); }
+      a:hover { color: var(--sage); border-bottom-color: var(--sage); }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px 22px;
+        margin: 24px 0;
+      }
+      footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="brand"><span class="brand-dot"></span> Daily Focus</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: 20 May 2026</p>
+
+      <p>Daily Focus is a Chrome extension that helps you track your top three daily focuses, build a streak habit, run a Pomodoro timer, and learn Danish vocabulary. This policy explains what data the extension handles and why.</p>
+
+      <h2>What we collect</h2>
+      <div class="card">
+        <p><strong>Nothing is sent to us.</strong> We do not operate a server. The extension has no account system, no analytics, and no tracking.</p>
+        <p style="margin-bottom: 0">All data is stored locally on your device or in your own Google account's Chrome sync storage. We never see it.</p>
+      </div>
+
+      <h2>What's stored locally</h2>
+      <p>The extension persists the following in <code>chrome.storage.local</code> (on your device only):</p>
+      <ul>
+        <li>Your three daily focuses, intention text, and frog mark</li>
+        <li>Pomodoro timer state (current phase, start time, cycles today)</li>
+        <li>30-day history of which days you completed all focuses</li>
+        <li>Theme preference (auto / light / dark)</li>
+        <li>Pomodoro durations and chime preference</li>
+        <li>Cached weather and Denmark news (refreshed every 30 minutes)</li>
+        <li>Your Danish learning deck (phrases, mastery progress, spaced-repetition schedule)</li>
+        <li>Your Anthropic API key, if you've added one</li>
+      </ul>
+
+      <h2>What's mirrored to your Google account</h2>
+      <p>If you enable "Cloud sync" in settings (default: on), a subset of the above mirrors to <code>chrome.storage.sync</code>, which Chrome syncs across devices logged into the same Google account. The mirrored data is:</p>
+      <ul>
+        <li>Settings, intention, focuses, history</li>
+        <li>Danish deck and current card pointer</li>
+      </ul>
+      <p>The sync happens through Google's infrastructure — we never see this data. You can disable cloud sync in the extension's settings at any time. Pomodoro timer state, weather/news caches, and per-tab dismissal state are <em>not</em> synced; they stay on each device.</p>
+
+      <h2>Third-party services</h2>
+      <p>When you use the extension, the following external services may receive HTTPS requests directly from your browser:</p>
+      <ul>
+        <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>) — weather temperature and conditions, refreshed every 30 minutes. Sends only latitude and longitude.</li>
+        <li><strong>BigDataCloud</strong> (<code>api.bigdatacloud.net</code>) — reverse-geocoding your coordinates to a city name, called only when you press "Use my location".</li>
+        <li><strong>The Copenhagen Post</strong> (<code>cphpost.dk</code>) — RSS feed of Denmark news headlines.</li>
+        <li><strong>Anthropic</strong> (<code>api.anthropic.com</code>) — Danish phrase generation and answer grading. Only called if you've supplied your own Anthropic API key in settings; your key is sent in the request header, and the request body contains the Danish phrase and your typed answer.</li>
+      </ul>
+      <p>We are not affiliated with any of these services and they each operate under their own privacy policies.</p>
+
+      <h2>Permissions explained</h2>
+      <ul>
+        <li><code>storage</code> — required to save your focuses, deck, and settings locally and to your sync storage.</li>
+        <li><code>sidePanel</code> — required to show the dashboard in Chrome's side panel.</li>
+        <li><code>geolocation</code> — used only when you click "Use my location" in settings. Coordinates are sent to Open-Meteo (for weather) and BigDataCloud (for the city name), then stored locally as latitude/longitude/name.</li>
+        <li><strong>Host permissions</strong> (<code>api.open-meteo.com</code>, <code>api.bigdatacloud.net</code>, <code>cphpost.dk</code>, <code>api.anthropic.com</code>) — needed to call the third-party services described above.</li>
+        <li><code>&lt;all_urls&gt;</code> content script access — the sticky Pomodoro pill and Danish quiz card need to render on every page you visit. The content script does not read page content; it only injects its own UI into a shadow DOM and reads the extension's own storage. It explicitly excludes Google login and reCAPTCHA pages.</li>
+      </ul>
+
+      <h2>What we do NOT do</h2>
+      <ul>
+        <li>No analytics, telemetry, or usage tracking</li>
+        <li>No advertising or third-party trackers</li>
+        <li>No selling or sharing of any data</li>
+        <li>No remote code execution</li>
+        <li>No reading of the content of pages you visit</li>
+        <li>No background data collection</li>
+      </ul>
+
+      <h2>Your control</h2>
+      <ul>
+        <li><strong>Disable cloud sync</strong> at any time in extension settings → "Cloud sync" toggle.</li>
+        <li><strong>Remove your Anthropic key</strong> by clearing the field in settings.</li>
+        <li><strong>Uninstall</strong> the extension to remove all locally stored data. Cloud-sync data tied to your Google account can be cleared via Chrome's sync settings or the "Clear browsing data" → "Sync data" option at <code>chrome://settings/clearBrowserData</code>.</li>
+      </ul>
+
+      <h2>Changes to this policy</h2>
+      <p>If the data practices change, this policy will be updated and the "Last updated" date above will reflect the change. Significant changes will be noted in the extension's release notes.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:baciauskas.aurimas@gmail.com">baciauskas.aurimas@gmail.com</a></p>
+
+      <footer>
+        Daily Focus is a personal project by Aurimas Baciauskas.
+      </footer>
+    </main>
+  </body>
+</html>
