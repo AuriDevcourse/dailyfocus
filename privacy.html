@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Daily Focus — Privacy Policy</title>
+    <title>Daily Focus · Privacy Policy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -114,25 +114,25 @@
           <li>Settings, intention, focuses, history</li>
           <li>Danish deck and current card pointer</li>
         </ul>
-        <p>The sync happens through Google's infrastructure — we never see this data. You can disable cloud sync in the extension's settings at any time. Pomodoro timer state, weather/news caches, and per-tab dismissal state are <em>not</em> synced; they stay on each device.</p>
+        <p>The sync happens through Google's infrastructure. We never see this data. You can disable cloud sync in the extension's settings at any time. Pomodoro timer state, weather/news caches, and per-tab dismissal state are <em>not</em> synced; they stay on each device.</p>
 
         <h2>Third-party services</h2>
         <p>When you use the extension, the following external services may receive HTTPS requests directly from your browser:</p>
         <ul>
-          <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>) — weather temperature and conditions, refreshed every 30 minutes. Sends only latitude and longitude.</li>
-          <li><strong>BigDataCloud</strong> (<code>api.bigdatacloud.net</code>) — reverse-geocoding your coordinates to a city name, called only when you press "Use my location".</li>
-          <li><strong>The Copenhagen Post</strong> (<code>cphpost.dk</code>) — RSS feed of Denmark news headlines.</li>
-          <li><strong>Anthropic</strong> (<code>api.anthropic.com</code>) — Danish phrase generation and answer grading. Only called if you've supplied your own Anthropic API key in settings; your key is sent in the request header, and the request body contains the Danish phrase and your typed answer.</li>
+          <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>): weather temperature and conditions, refreshed every 30 minutes. Sends only latitude and longitude.</li>
+          <li><strong>BigDataCloud</strong> (<code>api.bigdatacloud.net</code>): reverse-geocoding your coordinates to a city name, called only when you press "Use my location".</li>
+          <li><strong>The Copenhagen Post</strong> (<code>cphpost.dk</code>): RSS feed of Denmark news headlines.</li>
+          <li><strong>Anthropic</strong> (<code>api.anthropic.com</code>): Danish phrase generation and answer grading. Only called if you've supplied your own Anthropic API key in settings; your key is sent in the request header, and the request body contains the Danish phrase and your typed answer.</li>
         </ul>
         <p>We are not affiliated with any of these services and they each operate under their own privacy policies.</p>
 
         <h2>Permissions explained</h2>
         <ul>
-          <li><code>storage</code> — required to save your focuses, deck, and settings locally and to your sync storage.</li>
-          <li><code>sidePanel</code> — required to show the dashboard in Chrome's side panel.</li>
-          <li><code>geolocation</code> — used only when you click "Use my location" in settings. Coordinates are sent to Open-Meteo (for weather) and BigDataCloud (for the city name), then stored locally as latitude/longitude/name.</li>
-          <li><strong>Host permissions</strong> (<code>api.open-meteo.com</code>, <code>api.bigdatacloud.net</code>, <code>cphpost.dk</code>, <code>api.anthropic.com</code>) — needed to call the third-party services described above.</li>
-          <li><code>&lt;all_urls&gt;</code> content script access — the sticky Pomodoro pill and Danish quiz card need to render on every page you visit. The content script does not read page content; it only injects its own UI into a shadow DOM and reads the extension's own storage. It explicitly excludes Google login and reCAPTCHA pages.</li>
+          <li><code>storage</code>: required to save your focuses, deck, and settings locally and to your sync storage.</li>
+          <li><code>sidePanel</code>: required to show the dashboard in Chrome's side panel.</li>
+          <li><code>geolocation</code>: used only when you click "Use my location" in settings. Coordinates are sent to Open-Meteo (for weather) and BigDataCloud (for the city name), then stored locally as latitude/longitude/name.</li>
+          <li><strong>Host permissions</strong> (<code>api.open-meteo.com</code>, <code>api.bigdatacloud.net</code>, <code>cphpost.dk</code>, <code>api.anthropic.com</code>): needed to call the third-party services described above.</li>
+          <li><code>&lt;all_urls&gt;</code> content script access: the sticky Pomodoro pill and Danish quiz card need to render on every page you visit. The content script does not read page content; it only injects its own UI into a shadow DOM and reads the extension's own storage. It explicitly excludes Google login and reCAPTCHA pages.</li>
         </ul>
 
         <h2>What we do NOT do</h2>
