@@ -12,165 +12,86 @@
     />
     <meta name="description" content="A calm new-tab dashboard for your three daily focuses, Pomodoro timer, and a daily Danish phrase. Chrome extension." />
     <link rel="icon" type="image/png" href="icon-128.png" />
-    <style>
-      :root {
-        --bg-top: #f4f7f2;
-        --bg-bottom: #dde9dd;
-        --ink: #2d3d33;
-        --ink-soft: #6b7f70;
-        --ink-faint: #a8bcae;
-        --sage: #7ba888;
-        --sage-deep: #5b8a6b;
-        --sage-tint: rgba(123, 168, 136, 0.12);
-        --line: rgba(91, 138, 107, 0.18);
-        --card: rgba(255, 255, 255, 0.7);
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-top: #1a2420;
-          --bg-bottom: #0f1614;
-          --ink: #dde7e0;
-          --ink-soft: #94a89c;
-          --ink-faint: #62756a;
-          --sage: #7ba888;
-          --sage-deep: #a8d4b6;
-          --sage-tint: rgba(123, 168, 136, 0.18);
-          --line: rgba(168, 212, 182, 0.14);
-          --card: rgba(255, 255, 255, 0.035);
-          color-scheme: dark;
-        }
-      }
-      * { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; }
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: var(--ink);
-        background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-        min-height: 100vh;
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.55;
-      }
-      .stage {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 10vh 28px 8vh;
-        display: flex;
-        flex-direction: column;
-        gap: 36px;
-      }
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 12px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--ink-soft);
-        font-weight: 500;
-      }
-      .brand img { width: 36px; height: 36px; border-radius: 8px; }
-      h1 {
-        font-family: "Fraunces", Georgia, serif;
-        font-weight: 400;
-        font-size: clamp(36px, 5.5vw, 56px);
-        line-height: 1.05;
-        margin: 0;
-        letter-spacing: -0.015em;
-      }
-      .lede {
-        font-family: "Fraunces", Georgia, serif;
-        font-style: italic;
-        font-size: 19px;
-        color: var(--ink-soft);
-        margin: 0;
-        max-width: 540px;
-      }
-      .features {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 12px;
-      }
-      .features li {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 14px 18px;
-        font-size: 15px;
-      }
-      .features li strong {
-        color: var(--ink);
-        font-weight: 600;
-        display: block;
-        margin-bottom: 2px;
-        font-family: "Fraunces", Georgia, serif;
-        font-size: 17px;
-      }
-      .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 11px 20px;
-        border-radius: 999px;
-        font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-        transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
-      }
-      .btn-primary { background: var(--sage-deep); color: #fff; }
-      .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
-      .btn-ghost {
-        background: transparent;
-        color: var(--ink-soft);
-        border: 1px solid var(--line);
-      }
-      .btn-ghost:hover { color: var(--ink); border-color: var(--sage); }
-      footer {
-        margin-top: 40px;
-        padding-top: 24px;
-        border-top: 1px solid var(--line);
-        font-size: 13px;
-        color: var(--ink-soft);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-      }
-      footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px dashed var(--line); }
-      footer a:hover { color: var(--sage-deep); border-bottom-color: var(--sage); }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="blob blob-a" aria-hidden="true"></div>
+    <div class="blob blob-b" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
     <main class="stage">
-      <div class="brand">
-        <img src="icon-128.png" alt="" />
-        <span>Daily Focus</span>
-      </div>
+      <header class="meta">
+        <div class="brand">
+          <img src="icon-128.png" alt="" />
+          <span>daily focus</span>
+        </div>
+        <nav class="nav">
+          <a href="/privacy">privacy</a>
+        </nav>
+      </header>
 
-      <div>
-        <h1>Three focuses,<br />every new tab.</h1>
-      </div>
-      <p class="lede">A calm dashboard that replaces your new tab — three focuses, a Pomodoro timer, a habit grid, and an optional daily Danish phrase. Stays out of your way until you open a tab.</p>
+      <section class="hero">
+        <h1>Three focuses, <br/>every new tab.</h1>
+        <p class="lede">A calm dashboard that replaces your new tab — three focuses, a Pomodoro timer, a 30-day streak grid, and an optional daily Danish phrase. Stays out of your way until you open a tab.</p>
 
-      <ul class="features">
-        <li><strong>Three focuses, one frog.</strong> Pick what matters today. Mark the hardest as your frog and eat it first.</li>
-        <li><strong>Pomodoro per task.</strong> Click play on any focus. A floating timer follows you across tabs.</li>
-        <li><strong>Sticky pill on every page.</strong> Check off a focus without leaving the page you're on.</li>
-        <li><strong>30-day streak grid.</strong> Strict chain — any missed day breaks it. The kind that actually matters.</li>
-        <li><strong>Daily Danish (optional).</strong> Spaced-repetition card with AI grading via your own Anthropic key.</li>
-        <li><strong>Cloud sync across devices.</strong> Sign into Chrome with the same Google account and your data follows.</li>
-      </ul>
+        <div class="actions">
+          <a class="btn btn-primary" href="#" aria-disabled="true">Soon on Chrome Web&nbsp;Store</a>
+          <a class="btn btn-ghost" href="/privacy">Privacy policy</a>
+        </div>
+      </section>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="#" aria-disabled="true">Soon on Chrome Web Store</a>
-        <a class="btn btn-ghost" href="/privacy">Privacy policy</a>
-      </div>
+      <section class="preview-card" aria-label="Dashboard preview">
+        <div class="pv-meta">
+          <span class="pv-date">wednesday, may 20</span>
+          <span class="pv-streak">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1 1.51.71 4.79-1.36 7-2.7 2.66-6.18 3-9.85 3.65"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6"/>
+            </svg>
+            7-day streak
+          </span>
+        </div>
+        <h2 class="pv-greeting">Good morning, Auri</h2>
+        <p class="pv-intention">Ship the privacy page and submit to the store.</p>
+        <ul class="pv-tasks">
+          <li class="pv-task pv-task--done">
+            <span class="pv-check pv-check--on">✓</span>
+            <span class="pv-text">Write the privacy policy</span>
+          </li>
+          <li class="pv-task">
+            <span class="pv-check"></span>
+            <span class="pv-text"><strong>Submit to Chrome Web Store</strong></span>
+          </li>
+          <li class="pv-task">
+            <span class="pv-check"></span>
+            <span class="pv-text">Sip coffee, watch reviews trickle in</span>
+          </li>
+        </ul>
+      </section>
 
-      <footer>
-        <span>By <a href="https://github.com/AuriDevcourse">Aurimas Baciauskas</a></span>
-        <a href="/privacy">Privacy</a>
-        <a href="mailto:baciauskas.aurimas@gmail.com">Contact</a>
+      <section class="features">
+        <h3 class="features-heading">what's inside</h3>
+        <ul class="feature-list">
+          <li><strong>Three focuses, one frog.</strong> Pick what matters today. Mark the hardest as your frog and eat it first.</li>
+          <li><strong>Pomodoro per task.</strong> Click play on any focus. A floating timer follows you across tabs.</li>
+          <li><strong>Sticky pill on every page.</strong> Check off a focus without leaving the page you're on.</li>
+          <li><strong>30-day streak grid.</strong> Strict chain — any missed day breaks it. The kind that actually matters.</li>
+          <li><strong>Daily Danish (optional).</strong> Spaced-repetition card with AI grading via your own Anthropic key.</li>
+          <li><strong>Cloud sync across devices.</strong> Sign into Chrome with the same Google account, your data follows.</li>
+          <li><strong>Dark mode + auto.</strong> Light, dark, or system preference — tracks live.</li>
+          <li><strong>No analytics, no servers.</strong> Everything lives in your browser. Nothing leaves unless you call an API.</li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p class="quote">Discipline equals freedom.</p>
+        <div class="footer-links">
+          <span>By <a href="https://github.com/AuriDevcourse">Aurimas Baciauskas</a></span>
+          <span>·</span>
+          <a href="/privacy">Privacy</a>
+          <span>·</span>
+          <a href="mailto:baciauskas.aurimas@gmail.com">Contact</a>
+        </div>
       </footer>
     </main>
   </body>
